@@ -15,6 +15,10 @@ npm run build
 
 To run a local http server
 `
+npm install http-server -g
+`
+
+`
 http-server
 `
 

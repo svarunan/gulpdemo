@@ -11,11 +11,20 @@
     "gulp-concat": "^2.6.1",
     "gulp-uglify": "^3.0.0",
     "gulp-rename": "^1.2.2",
-    "gulp-browserify": "^0.5.1"
+    "gulp-browserify": "^0.5.1",
+    "gulp-replace": "^0.6.1"
   },
   "scripts": {
     "build": "node_modules/gulp/bin/gulp.js build"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svarunan/gulpdemo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/svarunan/gulpdemo/issues"
+  },
+  "homepage": "https://github.com/svarunan/gulpdemo#readme"
 }
