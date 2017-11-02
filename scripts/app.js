@@ -3,7 +3,7 @@ var md5 = require('md5');
 
 // import your custom files 
 var helper = require('./helper.js');
-
+var rootFun = require('../root/root.js');
 // my framework function
 //	myClient function name will be use as a reference function after bundling
 var Client = window.myClient = function(){};
@@ -15,5 +15,6 @@ Client.prototype.md5Converter = function(text){
 	var md5Text = md5(text);
 	document.write(helper.dateMs() + " :: md5 of " + text + " is "+md5Text + "<br>");
 	document.write("version: "+version);
+	console.log(rootFun());
 }
 // module.exports = Client;

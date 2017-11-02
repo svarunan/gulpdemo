@@ -4,11 +4,33 @@ var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var replace = require('gulp-replace');
 var browserify = require('gulp-browserify');
+var git = require('gulp-git');
+var del = require('del');
 
 //script paths
 var jsDest = 'distribution';
 
-gulp.task('build', function() {
+gulp.task('clean', function(cb){
+    del('./root/**', {force:true}).then(function(){
+        console.log('clean completed');
+        cb()
+    })
+})
+
+gulp.task('clone', ['clean'], function(cb){
+    // download any git commit
+    git.clone('https://github.com/svarunan/test', {args: './root/'}, function(err) {
+        if(err){
+            console.log("git clone error",err);
+        }else{
+            console.log("clone done");
+        }
+        cb();
+    });
+});
+
+gulp.task('default', ['clean', 'clone'], function(){
+    console.log('starting default task');
     // Single entry point to browserify 
     gulp.src('scripts/app.js')
         .pipe(browserify({
@@ -22,5 +44,5 @@ gulp.task('build', function() {
         .once('error', function (error) {
             console.log('error occured on uglify', error);
         })   
-        .pipe(gulp.dest(jsDest));
-});
+        .pipe(gulp.dest(jsDest));    
+})
