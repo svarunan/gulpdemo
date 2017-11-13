@@ -30,10 +30,6 @@ gulp.task('clone', ['clean'], function(cb){
     });
 });
 
-gulp.task('obfuscate', function(cb){
-
-});
-
 gulp.task('default', ['clean', 'clone'], function(){
     console.log('starting default task');
     // Single entry point to browserify 
