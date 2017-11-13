@@ -6,6 +6,7 @@ var replace = require('gulp-replace');
 var browserify = require('gulp-browserify');
 var git = require('gulp-git');
 var del = require('del');
+var obfuscate = require("gulp-javascript-obfuscator");
 
 //script paths
 var jsDest = 'distribution';
@@ -29,6 +30,10 @@ gulp.task('clone', ['clean'], function(cb){
     });
 });
 
+gulp.task('obfuscate', function(cb){
+
+});
+
 gulp.task('default', ['clean', 'clone'], function(){
     console.log('starting default task');
     // Single entry point to browserify 
@@ -44,5 +49,14 @@ gulp.task('default', ['clean', 'clone'], function(){
         .once('error', function (error) {
             console.log('error occured on uglify', error);
         })   
-        .pipe(gulp.dest(jsDest));    
+        .pipe(gulp.dest(jsDest))
+        .once('end', function(){
+            gulp.src('distribution/app.js')
+                .pipe(obfuscate())
+                .pipe(rename('obfuscate.js'))
+                .pipe(gulp.dest(jsDest))
+                .once('end', function(){
+                    console.log('obfuscate done');
+                })
+        })   
 })
