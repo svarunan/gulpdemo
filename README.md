@@ -25,7 +25,7 @@ http-server
 Then navigate to localhost URL shown in the console and see the demo
 
 ### Why is gulp for this?
-If you requirement is to create a javascript library for a new project that involves creating and maintaining multiple folder and file structure, Have to use modules from npm, use some git hub repos to include in you project and then finally you wanted a single js file with minified or non minified or obfuscated, Then gulp build is best suited for you.
+If your requirement is to create a javascript library for a new project that involves creating and maintaining multiple folder and file structure, Have to use modules from npm, use some git hub repos to include in you project and then finally you wanted a single js file with minified or non minified or obfuscated, Then gulp build is best suited for you.
 
 ### package.json
   ` scripts": {
