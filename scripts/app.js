@@ -1,11 +1,12 @@
 // a test npm module to check
 var md5 = require('md5');
 
-// import your custom files 
+// import your custom files the you have written
 var helper = require('./helper.js');
 var rootFun = require('../root/root.js');
-// my framework function
-//	myClient function name will be use as a reference function after bundling
+
+
+//	myClient function name will be use as a window function after bundling
 var Client = window.myClient = function(){};
 
 // test for gulp replace
