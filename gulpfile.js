@@ -65,7 +65,7 @@ gulp.task('default', ['clean', 'clone'], function(){
         // once it ends, take the non minifiled file and obfuscate it
         .once('end', function(){
             gulp.src('distribution/project.js')
-                .pipe(gulp-javascript-obfuscatoruscate())
+                .pipe(obfuscate())
                 .pipe(rename('obfuscate.js'))
                 .pipe(gulp.dest(jsDest))
                 .once('end', function(){
